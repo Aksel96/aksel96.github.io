@@ -4,29 +4,42 @@
 // En Node.js esto vendría de un `res.json(data)` de tu API.
 const projects = [
     {
-        title: "Image Manager Material",
-        description: "Aplicación de escritorio con interfaz moderna (Material Design) para búsqueda, almacenamiento y gestión dinámica de imágenes. Desarrollada con principios de POO.",
-        techStack: ["Python", "Flet", "POO", "Material UI"],
-        // Si no tienes link aún, pon "#" o el link a tu perfil general
-        link: "https://github.com/tusuario"
+        title: "Eros Wear",
+        description: "Plataforma E-commerce y social para una marca de moda. Incluye un probador interactivo (Canvas) con sistema de Drag & Drop para crear outfits, gestión de base de datos relacional para usuarios, comentarios y likes, además de un motor de renderizado dinámico con escalado automático.",
+        techStack: ["Node.js", "Express", "MySQL", "JavaScript (ES6+)", "Handlebars", "Bootstrap 5"],
+        link: "https://eros-wear.onrender.com"
     },
+
     {
-        title: "Algebra Linear Suite",
-        description: "Software educativo diseñado para la FES Aragón. Incluye GUI para visualizar algoritmos matemáticos y diagramas de flujo para documentación de arquitectura.",
-        techStack: ["Python", "Tkinter", "Matplotlib", "Algoritmos"],
-        link: "https://github.com/tusuario"
-    },
-    {
-        title: "Java Management System",
-        description: "Sistema de gestión de bases de datos robusto. Implementación de estructuras de datos complejas y conexión persistente a MySQL.",
-        techStack: ["Java", "Swing", "MySQL", "Estructuras de Datos"],
-        link: "https://github.com/tusuario"
+        title: "REST API",
+        description: "API REST desarrollada con Spring Boot para la gestión de videojuegos. Implementación de arquitectura de microservicios utilizando Docker Compose para la orquestación de contenedores (App + MySQL).",
+        techStack: ["Java", "Spring Boot", "Docker", "MySQL", "Docker Compose"],
+        link: "https://github.com/Aksel96/APIRest-Spring-DockerCompose" // Reemplaza con el link al repo si ya lo tienes
     },
     {
         title: "ShadowDex Analytics",
         description: "Scripts de análisis de datos para medir retención de audiencia en una comunidad de +40k usuarios. Automatización de reportes de rendimiento.",
         techStack: ["Python", "Data Analysis", "Excel", "Automation"],
-        link: "https://github.com/tusuario"
+        link: "https://www.facebook.com/AShadowDex"
+    }
+    ,
+    {
+        title: "Sticker Hunt",
+        description: "Aplicación de escritorio con interfaz moderna (Material Design) para búsqueda, almacenamiento y gestión dinámica de imágenes. Desarrollada con principios de POO.",
+        techStack: ["Python", "Flet", "POO", "Material UI"],
+        link: "https://github.com/Aksel96/Sticker_Hunt"
+    },
+    {
+        title: "Algebra Lineal",
+        description: "Software educativo diseñado para la FES Aragón. Incluye GUI para visualizar algoritmos matemáticos y diagramas de flujo para documentación de arquitectura.",
+        techStack: ["Python", "Tkinter", "Matplotlib", "Algoritmos"],
+        link: "https://github.com/Aksel96/prototipo_libro_digital"
+    },
+    {
+        title: "Java Management System",
+        description: "Sistema de gestión de bases de datos robusto. Implementación de estructuras de datos complejas y conexión persistente a MySQL.",
+        techStack: ["Java", "Swing", "MySQL", "Estructuras de Datos"],
+        link: "https://github.com/Aksel96/ProyectoFinalPOO"
     }
 ];
 
@@ -53,7 +66,7 @@ const renderProjects = () => {
                     </div>
                 </div>
                 <div class="card-footer">
-                    <a href="${project.link}" target="_blank" class="btn-card">Ver Código →</a>
+                    <a href="${project.link}" target="_blank" class="btn-card">Más información →</a>
                 </div>
             </article>
         `;
