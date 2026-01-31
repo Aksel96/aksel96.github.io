@@ -11,12 +11,16 @@
 </head>
 <body>
 
+<div class="progress-container">
+  <div class="progress-bar" id="myBar"></div>
+</div>
+
 <nav class="navbar">
   <div class="logo">Portafolio</div>
   <ul class="nav-links">
     <li><a href="#inicio">Inicio</a></li>
     <li><a href="#sobre-mi">Sobre Mí</a></li>
-    <li><a href="#proyectos">Proyectos</a></li>
+    <li><a href="#habilidades">Stack</a></li>   <li><a href="#formacion">Formación</a></li> <li><a href="#proyectos">Proyectos</a></li>
     <li><a href="#contacto">Contacto</a></li>
   </ul>
 </nav>
@@ -27,7 +31,7 @@
     <div class="hero-text">
       <h1 class="animate-text">Hola, soy <span class="highlight">Aksel Villela</span></h1>
       <p class="animate-text delay-1">
-        Estudiante de Ingeniería en Computación  & Full Stack Dev.
+        <span id="typewriter" class="type-text"></span><span class="cursor">|</span>
         <br>
         <span class="sub-text">Apasionado por UI/UX, IA y Matemáticas Aplicadas.</span>
       </p>
@@ -94,6 +98,111 @@
   </div>
 </section>
 
+<section id="habilidades" class="skills-section">
+  <h2 class="section-title">Tecnologías & Herramientas</h2>
+  <div class="skills-container">
+    <div class="skills-grid">
+      <div class="skill-card">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" />
+        <span>Python</span>
+      </div>
+      <div class="skill-card">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" />
+        <span>Java</span>
+      </div>
+      <div class="skill-card">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="Spring" />
+        <span>Spring Boot</span>
+      </div>
+      <div class="skill-card">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" />
+        <span>Docker</span>
+      </div>
+      <div class="skill-card">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" />
+        <span>Node.js</span>
+      </div>
+      <div class="skill-card">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" />
+        <span>MySQL</span>
+      </div>
+      <div class="skill-card">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" />
+        <span>JavaScript</span>
+      </div>
+      <div class="skill-card">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" />
+        <span>Git</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="formacion" class="education-section">
+  <h2 class="section-title">Formación Especializada</h2>
+  <div class="education-grid">
+
+    <div class="edu-card">
+      <div class="edu-icon">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="IA" />
+      </div>
+      <div class="edu-info">
+        <h4>Deep Learning</h4>
+        <p>FES Aragón</p>
+        <span class="edu-date">Marzo 2024</span>
+      </div>
+    </div>
+
+    <div class="edu-card">
+      <div class="edu-icon">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" />
+      </div>
+      <div class="edu-info">
+        <h4>Contenedores y Microservicios</h4>
+        <p>FES Aragón (PAPIME)</p>
+        <span class="edu-date">Enero 2025</span>
+      </div>
+    </div>
+
+    <div class="edu-card">
+      <div class="edu-icon">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original-wordmark.svg" alt="Data Science" />
+      </div>
+      <div class="edu-info">
+        <h4>Python para Ciencia de Datos</h4>
+        <p>FES Aragón</p>
+        <span class="edu-date">Enero 2025</span>
+      </div>
+    </div>
+
+    <div class="edu-card">
+      <div class="edu-icon">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" />
+      </div>
+      <div class="edu-info">
+        <h4>Git y GitHub Profesional</h4>
+        <p>Netzun</p>
+        <span class="edu-date">Enero 2024</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="other-courses">
+    <details>
+      <summary>Ver otros cursos y talleres</summary>
+      <ul>
+        <li>Prevención de Violencia Económica (FES Aragón)</li>
+        <li>Kotlin Básico e Intermedio (Netzun)</li>
+        <li>Excel Básico (Netzun)</li>
+        <li>Estrategias de Gestión y Liderazgo TI (FES Aragón)</li>
+      </ul>
+    </details>
+  </div>
+</section>
+
+
+
 <section id="proyectos" class="projects-section">
   <h2 class="section-title">Mis Proyectos</h2>
   <div class="projects-grid">
@@ -129,6 +238,7 @@
   </footer>
 </section>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
 <script type="module" src="./src/main.js"></script>
 </body>
 </html>
