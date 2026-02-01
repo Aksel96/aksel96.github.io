@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para María ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        /* ESTILOS INTERNOS PARA NO CREAR OTRO CSS */
+        :root {
+            --bg-color: #0f0505; /* Rojo muy oscuro casi negro */
+            --accent: #ff4d6d;   /* Rosa romántico */
+            --text: #fff0f3;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text);
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* EFECTO DE FONDO (Corazones flotantes borrosos) */
+        .bg-heart {
+            position: fixed;
+            top: 50%; left: 50%;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(255, 77, 109, 0.2) 0%, transparent 70%);
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            animation: pulse 4s infinite ease-in-out;
+        }
+
+        /* TEXTOS */
+        header {
+            text-align: center;
+            margin-top: 4rem;
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: fadeIn 1.5s ease-out forwards;
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4rem;
+            color: var(--accent);
+            text-shadow: 0 0 20px rgba(255, 77, 109, 0.5);
+        }
+
+        p.subtitle {
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            margin-top: 0.5rem;
+        }
+
+        /* GALERÍA POLAROID */
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1200px;
+        }
+
+        .photo-card {
+            background: white;
+            padding: 1rem 1rem 3rem 1rem; /* Espacio abajo tipo Polaroid */
+            border-radius: 4px;
+            transform: rotate(-2deg);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            width: 280px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            opacity: 0; /* Para animación de entrada */
+            animation: slideUp 1s ease-out forwards;
+        }
+
+        /* Rotación aleatoria para que se vea natural */
+        .photo-card:nth-child(even) { transform: rotate(3deg); margin-top: 2rem; }
+        .photo-card:nth-child(odd) { transform: rotate(-3deg); }
+
+        .photo-card:hover {
+            transform: scale(1.1) rotate(0deg) !important;
+            z-index: 10;
+            box-shadow: 0 0 30px rgba(255, 77, 109, 0.6);
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 2px;
+            filter: sepia(20%); /* Filtro vintage suave */
+        }
+
+        .photo-caption {
+            color: #333;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.5rem;
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        /* MENSAJE FINAL */
+        .message {
+            max-width: 600px;
+            text-align: center;
+            margin: 4rem 1rem;
+            padding: 2rem;
+            border: 1px solid var(--accent);
+            border-radius: 20px;
+            background: rgba(255, 77, 109, 0.05);
+        }
+
+        /* ANIMACIONES */
+        @keyframes pulse { 0%, 100% { transform: translate(-50%, -50%) scale(1); } 50% { transform: translate(-50%, -50%) scale(1.2); } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(50px) rotate(0); } to { opacity: 1; } }
+
+        /* Retrasos para las fotos */
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+
+
+        /* =========================================
+       ESTILOS DE LA SECCIÓN SECRETA
+       ========================================= */
+        .secret-section {
+            text-align: center;
+            margin: 4rem 0 2rem;
+            /* Un pequeño separador sutil */
+            border-top: 1px dashed rgba(255, 77, 109, 0.3);
+            padding-top: 3rem;
+            width: 80%;
+        }
+
+        .hint {
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        .secret-card {
+            position: relative;
+            width: 300px;  /* Tamaño de la tarjeta */
+            height: 450px; /* Un poco más alta (formato retrato) queda mejor */
+            margin: 0 auto;
+            border-radius: 15px;
+            overflow: hidden; /* Para que el desenfoque no se salga de los bordes */
+            cursor: pointer;
+            border: 2px solid var(--accent);
+            box-shadow: 0 0 20px rgba(255, 77, 109, 0.2);
+        }
+
+        /* LA IMAGEN EN ESTADO OCULTO */
+        .secret-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Aquí está la magia: muy borrosa y oscura al principio */
+            filter: blur(30px) brightness(0.4) grayscale(50%);
+            transform: scale(1.1); /* Un poco de zoom para que el blur se vea mejor */
+            transition: all 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Transición lenta y sensual */
+        }
+
+        /* LA CAPA DE TEXTO ENCIMA */
+        .secret-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* Fondo semi-transparente rojizo */
+            background: rgba(20, 0, 5, 0.5);
+            transition: opacity 0.8s ease;
+        }
+
+        .secret-overlay span {
+            color: var(--accent);
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+            animation: pulseText 2s infinite;
+        }
+
+
+        .secret-card.revealed .secret-img {
+            filter: blur(0px) brightness(1) grayscale(0%);
+            transform: scale(1); /* Vuelve a tamaño normal */
+        }
+
+        /* Y la capa de texto desaparece */
+        .secret-card.revealed .secret-overlay {
+            opacity: 0;
+            pointer-events: none; /* Para que ya no estorbe al mouse */
+        }
+
+        /* Animación sutil para el texto "Toque para revelar" */
+        @keyframes pulseText {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="bg-heart"></div>
+
+<header>
+    <h1>Feliz 1er Mes, María</h1>
+    <p class="subtitle">Un pequeño detalle para ti, espero que te guste mi piel canela 💕 </p>
+</header>
+
+<div class="gallery">
+    <div class="photo-card delay-1">
+        <img src="/aksel96.github.io/assets/7-CW8m8neu.jpeg" alt="Nosotros">
+        <div class="photo-caption">Los mas aesthetics jsjs ❤️</div>
+    </div>
+
+    <div class="photo-card delay-2">
+        <img src="/aksel96.github.io/assets/4-BqzN08WZ.jpeg" alt="Juntos">
+        <div class="photo-caption">Tus carotas jeje  </div>
+    </div>
+
+    <div class="photo-card delay-3">
+        <img src="/aksel96.github.io/assets/2-CMYcwvSH.jpeg" alt="Momentos">
+        <div class="photo-caption">Gojo vs sukuna live action xd 😱</div>
+    </div>
+    <div class="photo-card delay-3">
+        <img src="/aksel96.github.io/assets/3-BskaKpxi.jpeg" alt="Momentos">
+        <div class="photo-caption">Mi favorita, una pareja de telenovela 💖 </div>
+    </div>
+</div>
+
+<div class="message">
+    <p>
+        Este tiempo que he estado contigo ha sido increíble. Me has hecho sentir muchísimo, me has animado, me has enseñado,
+        Me has aconsejado, y por todo eso y más te quiero agradecer.
+        Te mando muchos besitos y abrazos y espero pronto dártelos en persona. ✨
+        Gracias por inspirarme a ser mejor cada día.
+        <br><br>
+        Te amo muchísimo, mi corazón de melón. 💗💞
+    </p>
+</div>
+<div class="secret-section">
+    <p class="hint">Las prohibidas 🤯</p>
+
+    <div class="secret-card" onclick="this.classList.toggle('revealed')">
+        <img src="/aksel96.github.io/assets/w-TZ3pnATM.jpeg" alt="Shhh" class="secret-img">
+        <div class="secret-overlay">
+            <span>Toca bajo tu propio riesgo 🥵 </span>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+<script>
+    VanillaTilt.init(document.querySelectorAll(".photo-card"), {
+        max: 10,
+        speed: 400,
+        glare: true,
+        "max-glare": 0.5,
+    });
+</script>
+
+</body>
+</html>
